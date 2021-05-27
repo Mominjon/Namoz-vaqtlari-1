@@ -3,7 +3,7 @@ async function getData() {
     navigator.geolocation.getCurrentPosition(async function(data) {
         const lat = data.coords.latitude
         const long = data.coords.longitude
-        let linkElement = await fetch(`http://api.aladhan.com/v1/calendar?latitude=${lat}&longitude=${long}&method=3&month=${new Date().getMonth()+ 1}&year=${new Date().getFullYear()}`)
+        let linkElement = await fetch(`https://api.aladhan.com/v1/calendar?latitude=${lat}&longitude=${long}&method=3&month=${new Date().getMonth()+ 1}&year=${new Date().getFullYear()}`)
         let json = await linkElement.json()
         await json.data.forEach(element => {
             console.log(element.date.gregorian.date)
